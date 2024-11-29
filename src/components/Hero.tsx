@@ -12,9 +12,16 @@ export function Hero() {
           <p className="text-gray-300 text-xl">
             Turn your mid professional experience into absolutely bussin career W's. No cap fr fr! 🔥
           </p>
-          <button className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all flex items-center gap-2">
-            <span>Start Rizzifying</span>
-            <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+          <button
+            className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all flex items-center gap-2"
+          >
+            <a
+              href="/create" // Link to navigate to /create
+              className="flex items-center gap-2"
+            >
+              <span>Start Rizzifying</span>
+              <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+            </a>
           </button>
         </div>
         <div className="flex-1 relative">
