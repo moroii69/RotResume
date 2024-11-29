@@ -1,21 +1,18 @@
 import React from 'react';
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { HowItWorks } from './components/HowItWorks';
-import { Features } from './components/Features';
-import { Preview } from './components/Preview';
-import { Footer } from './components/Footer';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Landing } from './pages/Landing';
+import { ResumeBuilder } from './pages/ResumeBuilder';
+import { ResumePreview } from './pages/ResumePreview';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-900">
-      <Navbar />
-      <Hero />
-      <HowItWorks />
-      <Features />
-      <Preview />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/create" element={<ResumeBuilder />} />
+        <Route path="/preview" element={<ResumePreview />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
