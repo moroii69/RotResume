@@ -3,10 +3,12 @@ import { Menu, Sparkles } from 'lucide-react';
 import { Logo } from './Logo';
 import { NavLinks } from './NavLinks';
 import { MobileMenu } from './MobileMenu';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +18,10 @@ export function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleStartCreatingClick = () => {
+    navigate('/create'); // Redirect to /create when the button is clicked
+  };
 
   return (
     <>
@@ -31,7 +37,10 @@ export function Navbar() {
             
             <div className="hidden md:flex items-center space-x-6">
               <NavLinks />
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium flex items-center space-x-2 transition-colors">
+              <button
+                onClick={handleStartCreatingClick} // Attach the click handler here
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium flex items-center space-x-2 transition-colors"
+              >
                 <span>Start Creating</span>
                 <Sparkles className="w-4 h-4" />
               </button>
